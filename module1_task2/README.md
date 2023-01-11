@@ -1,11 +1,13 @@
+# HolbertonSchool-Validation
+
 ## Prerequisites
 
-Go Hugo 
-
+- GoHugo v0.80+
+- goLang
 
 ## Lifecycle
 
-Build
-Clean
-Post
-Help
+- build
+- clean
+- post
+- help
