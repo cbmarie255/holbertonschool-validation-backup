@@ -22,5 +22,5 @@ clean: ## Delete the binary awesome-api and the log file awesome-api.log.
 	rm -r awesome-api
 
 test: ## Tests application to ensure that it behaves as expected
-	curl -u http://localhost:9999
-	curl -u http://localhost:9999/health
+	wget http://localhost:9999
+	wget http://localhost:9999/health
