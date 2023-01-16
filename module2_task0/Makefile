@@ -21,15 +21,6 @@ clean: ## Delete the binary awesome-api and the log file awesome-api.log.
 	rm -r awesome-api
 	rm awesome-api.log
 
-test: ## Tests application to ensure that it behaves as expected.
-	if pgrep -x awesome-api > /dev/null
-		then
-  		# The application is running, run make test
-  		./awesome-api >./awesome.log 2>&1 &
-  		exit 0
-	else
-  	# The application is not running, exit with failure code
-  	exit 1
-	fi
+test: ## Tests application to ensure that it behaves as expected
 	curl http://localhost:9999
 	curl http://localhost:9999/health
