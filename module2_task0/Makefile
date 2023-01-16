@@ -1,4 +1,4 @@
-##.SILENT:
+.SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
 	sed -n '2p;5p;11p;14p;17p;21p' Makefile | grep "##" | tr -d "##"
 
@@ -13,7 +13,7 @@ run: ## Runs the application in background by executing the binary awesome-api, 
 	touch awesome.log
 	chmod u+x awesome.log
 	./awesome-api >./awesome.log 2>&1 &
-	disown
+	make run
 
 stop: ## Stops the application.
 	kill "$(pgrep awesome-api)"
@@ -22,5 +22,5 @@ clean: ## Delete the binary awesome-api and the log file awesome-api.log.
 	rm -r awesome-api
 
 test: ## Tests application to ensure that it behaves as expected
-	curl http://localhost:9999
-	curl http://localhost:9999/health
+	curl -u http://localhost:9999
+	curl -u http://localhost:9999/health
