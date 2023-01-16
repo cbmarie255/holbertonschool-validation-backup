@@ -4,14 +4,15 @@ help: ## Must be implemented and print a list of all the goals with a sentence.
 
 build: ## Compiles the source code of the application to a binary named awesome-api.
 	go mod init github.com/cbmarie255/awesome-api
-	go build -o awesome-api main.go
+	go build 
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
 	chmod u+x awesome-api
 	./awesome-api >./awesome.log 2>&1 &
 
 stop: ## Stops the application.
-	kill "$(pidof awesome-api)"
+	process_id=$(pgrep awesome-api)
+	kill "$process_id" 
 
 clean: ## Delete the binary awesome-api and the log file awesome-api.log.
 	rm -r awesome-api
