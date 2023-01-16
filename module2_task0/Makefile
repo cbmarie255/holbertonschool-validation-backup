@@ -9,7 +9,7 @@ build: ## Compiles the source code of the application to a binary named awesome-
 	go build -o awesome-api main.go
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
-	nohup awesome-api &> awesome.log &
+	nohup ./awesome-api &> awesome.log &
 
 stop: ## Stops the application.
 	kill "$(pgrep awesome-api)"
