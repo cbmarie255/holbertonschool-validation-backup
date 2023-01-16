@@ -10,8 +10,6 @@ build: ## Compiles the source code of the application to a binary named awesome-
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
 	chmod u+x awesome-api
-	touch awesome.log
-	chmod u+x awesome.log
 	./awesome-api >./awesome.log 2>&1 &
 
 stop: ## Stops the application.
