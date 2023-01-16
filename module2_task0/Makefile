@@ -9,13 +9,13 @@ build: ## Compiles the source code of the application to a binary named awesome-
 	go build -o awesome-api main.go
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
-	./awesome-api >./awesome.log 2>&1 &
+	nohup awesome-api &> awesome.log &
 
 stop: ## Stops the application.
 	kill "$(pgrep awesome-api)"
 
 clean: ## Delete the binary awesome-api and the log file awesome-api.log.
-	rmdir awesome-api
+	rm -d awesome-api
 	rm awesome-api.log
 
 test: ## Test it to ensure that it behaves as expected.
