@@ -20,7 +20,6 @@ stop: ## Stops the application.
 
 clean: ## Delete the binary awesome-api and the log file awesome-api.log.
 	rm -r awesome-api
-	rm awesome-api.log
 
 test: ## Tests application to ensure that it behaves as expected
 	curl http://localhost:9999
