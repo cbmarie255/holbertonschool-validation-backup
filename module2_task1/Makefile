@@ -6,7 +6,7 @@ lint: ## Checks to see if the code is written in compliance with the linter.
 	golangci-lint run >/dev/null 2>&1 && echo "OK" || echo "ERROR"
 	
 build: ## Compiles the source code of the application to a binary named awesome-api.
-	lint_check=$(make lint)
+	lint_check=$(golangci-lint run >/dev/null 2>&1 && echo "OK" || echo "ERROR")
 	if [ lint_check == "OK" ]
 	then
 		go mod init github.com/cbmarie255/awesome-api
