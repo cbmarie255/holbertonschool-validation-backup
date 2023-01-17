@@ -13,6 +13,7 @@ build: ## Compiles the source code of the application to a binary named awesome-
 		go build
 	else
 		return golangci-lint run
+	fi
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
 	chmod u+x awesome-api
