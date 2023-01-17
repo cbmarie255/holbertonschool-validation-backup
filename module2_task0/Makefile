@@ -6,7 +6,7 @@ build: ## Compiles the source code of the application to a binary named awesome-
 	mkdir awesome-api
 	cd awesome-api
 	go mod init github.com/cbmarie255/awesome-api
-	go build -o awesome-api main.go
+	go build 
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
 	chmod u+x awesome-api
@@ -16,8 +16,9 @@ stop: ## Stops the application.
 	pgrep awesome-api | xargs kill
 
 clean: ## Delete the binary awesome-api and the log file awesome-api.log.
-	rm -r awesome-api
-
+	rm -rf awesome-api
+	pgrep awesome-api | xargs kill
+	
 test: ## Tests application to ensure that it behaves as expected
 	curl http://localhost:9999
 	curl http://localhost:9999/health
