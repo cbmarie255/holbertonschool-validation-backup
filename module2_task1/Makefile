@@ -21,7 +21,7 @@ stop: ## Stops the application.
 	pgrep awesome-api | xargs kill
 
 clean: ## Delete the binary awesome-api and the log file awesome-api.log.
-	rm -r awesome-api
+	-rm -r awesome-api
 	pgrep awesome-api | xargs kill
 
 test: ## Tests application to ensure that it behaves as expected.
