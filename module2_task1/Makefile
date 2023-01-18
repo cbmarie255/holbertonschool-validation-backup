@@ -1,6 +1,6 @@
 .SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
-	sed -n '2p;5p;8p;17p;21p;24p;28p' Makefile | grep "##" | tr -d "##"
+	sed -n '2p;5p;8p;16p;20p;23p;27p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
 	golangci-lint run >/dev/null 2>&1 && echo "OK" || echo "ERROR"
