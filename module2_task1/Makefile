@@ -5,7 +5,7 @@ help: ## Must be implemented and print a list of all the goals with a sentence.
 lint: ## Checks to see if the code is written in compliance with the linter.
 	golangci-lint run >/dev/null 2>&1 && echo "OK" || echo "ERROR"; \
 	if [ $? -eq 'OK' ]; then \
-		exit 0;
+		exit 0; \
 	else \
 		exit 1; fi \
 
@@ -14,7 +14,7 @@ build: ## Compiles the source code of the application to a binary named awesome-
 	if [ $? -eq 0 ]; then \
 		go mod init github.com/cbmarie255/awesome-api; \
 		go build; \
-		exit 0;
+		exit 0; \
 	else \
 		echo "Linting failed, cannot make build"; \
 		exit 1; fi \
