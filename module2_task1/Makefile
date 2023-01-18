@@ -1,6 +1,6 @@
 .SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
-	sed -n '2p;5p;8p;16p;20p;23p;27p' Makefile | grep "##" | tr -d "##"
+	sed -n '2p;5p;8p;16p;20p;23p;26p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
 	golangci-lint run >/dev/null 2>&1 && echo "OK" || echo "ERROR"
@@ -22,7 +22,6 @@ stop: ## Stops the application.
 
 clean: ## Delete the binary awesome-api and the log file awesome-api.log.
 	rm -r awesome-api
-	pgrep awesome-api | xargs kill
 
 test: ## Tests application to ensure that it behaves as expected.
 	curl http://localhost:9999
