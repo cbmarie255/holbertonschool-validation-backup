@@ -5,7 +5,7 @@ help: ## Must be implemented and print a list of all the goals with a sentence.
 lint: ## Checks to see if the code is written in compliance with the linter.
 	golangci-lint run >/dev/null 2>&1 && echo "OK" || echo "ERROR"; \
 	if [ $? -eq 0 ]; then \
-		exit 0; \
+		continue; \
 	else \
 		exit 1; fi \
 
@@ -22,7 +22,7 @@ stop: ## Stops the application.
 
 clean: ## Delete the binary awesome-api and the log file awesome-api.log.
 	-rm -r awesome-api
-	pgrep awesome-api | xargs kill
+	-pgrep awesome-api | xargs kill
 
 test: ## Tests application to ensure that it behaves as expected.
 	curl http://localhost:9999
