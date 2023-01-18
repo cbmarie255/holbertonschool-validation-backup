@@ -12,8 +12,8 @@ lint: ## Checks to see if the code is written in compliance with the linter.
 	fi
 
 build: ## Compiles the source code of the application to a binary named awesome-api.
-	go mod init github.com/cbmarie255/awesome-api
-	go build
+	-go mod init github.com/cbmarie255/awesome-api
+	-go build
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
 	chmod u+x awesome-api
@@ -31,4 +31,4 @@ test: ## Tests application's server to ensure that it behaves as expected.
 	curl http://localhost:9999/health
 
 unit-tests: ## Unit-testing code for the HelloHandler method.
-	go test -v -short -coverprofile=coverage-units.out
+	go test -v -coverprofile=coverage-units.out

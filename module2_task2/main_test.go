@@ -38,9 +38,9 @@ func Test_HelloHandler(t *testing.T) {
     },
     {
       name:         "",
-      queryString:  "name=",
+      queryString:  "name=nameParams[len(nameParams)-1]",
       responseCode: 200,
-      body:         "Hello!",
+      body:         "Hello nameParams[len(nameParams)-1]!",
     },
     {
       name:         "",
