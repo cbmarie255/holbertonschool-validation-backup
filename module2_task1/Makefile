@@ -1,9 +1,14 @@
 .SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
-	sed -n '2p;5p;8p;12p;16p;19p;23p' Makefile | grep "##" | tr -d "##"
+	sed -n '2p;5p;13p;17p;21p;24p;28p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
-	golangci-lint run >/dev/null 2>&1 && echo "OK" || echo "ERROR"
+	lint_check=$(golangci-lint run >/dev/null 2>&1 && echo "OK" || echo "ERROR"); \
+	if [ $lint_check == 'OK']; then \
+		exit 0; \
+	else \
+		exit 1; \
+	fi
 
 build: ## Compiles the source code of the application to a binary named awesome-api.
 	go mod init github.com/cbmarie255/awesome-api
