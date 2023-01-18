@@ -7,12 +7,11 @@ lint: ## Checks to see if the code is written in compliance with the linter.
 	
 build: ## Compiles the source code of the application to a binary named awesome-api.
 	make lint
-	if [ $? -eq 0 ]
-	then
-		go mod init github.com/cbmarie255/awesome-api
-		go build
-	else
-		exit 1
+	if [ $? -eq 0 ]; then \
+		go mod init github.com/cbmarie255/awesome-api; \
+		go build; \
+	else \
+		exit 1; \
 	fi
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
