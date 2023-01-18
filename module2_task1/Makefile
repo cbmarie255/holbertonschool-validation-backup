@@ -8,7 +8,7 @@ lint: ## Checks to see if the code is written in compliance with the linter.
 		exit 0;
 	else \
 		exit 1; \
-	fi
+	fi \
 
 build: ## Compiles the source code of the application to a binary named awesome-api.
 	make lint; \
@@ -19,7 +19,7 @@ build: ## Compiles the source code of the application to a binary named awesome-
 	else \
 		echo "Linting failed, cannot make build"; \
 		exit 1; \
-	fi
+	fi \
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
 	chmod u+x awesome-api
