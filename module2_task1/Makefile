@@ -1,15 +1,23 @@
 .SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
-	sed -n '2p;5p;8p;16p;20p;23p;26p' Makefile | grep "##" | tr -d "##"
+	sed -n '2p;5p;14p;24p;28p;31p;34p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
-	golangci-lint run >/dev/null 2>&1 && echo "OK" || echo "ERROR"
+	golangci-lint run >/dev/null 2>&1 && echo "OK" || echo "ERROR"; \
+	if [ $? -eq 0 ]; then \
+  		echo "Linting successful, make buld possible"; \
+	else \
+  		echo "Linting failed, cannot make build"; \
+  		exit 1; \
+	fi
 	
 build: ## Compiles the source code of the application to a binary named awesome-api.
-	if [ $(make lint) == 'OK']; then \
+	lint_check=$(make lint); \
+	if [ $? -eq 0 ]; then \
 		go mod init github.com/cbmarie255/awesome-api; \
 		go build; \
 	else \
+		echo "Linting failed, cannot make build"; \
 		exit 1; \
 	fi
 
