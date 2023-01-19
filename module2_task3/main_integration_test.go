@@ -7,7 +7,7 @@ import (
   "testing"
 )
 
-func Test_server(t *testing.T) {
+func Test_Server(t *testing.T) {
   if testing.Short() {
     t.Skip("Flag `-short` provided: skipping Integration Tests.")
   }
@@ -30,8 +30,19 @@ func Test_server(t *testing.T) {
       responseCode: 200,
       body:         "Hello Holberton!",
     },
+    {
+      name:         "SetUp Router",
+      URI:          "/hello?name=HelloHandler",
+      responseCode: 200,
+      body:         "Hello HelloHandler!",
+    },
+    {
+      name:         "Setup Router",
+      URI:          "/health?name=Healthcheck Handler",
+      responseCode: 400,
+      body:         "400 Bad Request",
+    },
   }
-
   for _, tt := range tests {
     t.Run(tt.name, func(t *testing.T) {
       ts := httptest.NewServer(setupRouter())

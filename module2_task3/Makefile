@@ -33,5 +33,5 @@ test: ## Tests application's server to ensure that it behaves as expected.
 unit-tests: ## Unit-testing code for the HelloHandler method.
 	go test -v -short -coverprofile=coverage-units.out
 
-integration-tests: ## Successfully executes the Golang integration tests.
-	
+integration-tests: ## Successfully executes a specific Golang integration tests.
+	go test -v -run ^main_integration_test.go -coverprofile=coverage-integrations.out
