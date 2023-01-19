@@ -20,7 +20,7 @@ run: ## Runs the application in background by executing the binary awesome-api, 
 	./awesome-api >./awesome.log 2>&1 &
 
 stop: ## Stops the application.
-	-pgrep awesome-api | xargs kill
+	pgrep awesome-api | xargs kill
 
 clean: ## Delete the binary awesome-api and the log file awesome-api.log.
 	-rm -r awesome-api
