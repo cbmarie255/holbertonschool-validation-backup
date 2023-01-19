@@ -29,10 +29,10 @@ clean: ## Delete the binary awesome-api and the log file awesome-api.log.
 test: ## Tests application's server to ensure that it behaves as expected.
 	curl http://localhost:9999
 	curl http://localhost:9999/health
-	go test -v -short
+	go test -v 
 
 unit-tests: ## Unit-testing code for the HelloHandler method.
 	go test -v -short -coverprofile=coverage-units.out
 
 integration-tests: ## Successfully executes a specific Golang integration tests.
-	go test -v -short -run=main_integration_test.go -coverprofile=coverage-integrations.out
+	go test -v -short -run "^main_integration_test.go" -coverprofile=coverage-integrations.out
