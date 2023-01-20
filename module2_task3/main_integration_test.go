@@ -7,7 +7,7 @@ import (
   "testing"
 )
 
-func Test_Server(t *testing.T) {
+func Test_server(t *testing.T) {
   if testing.Short() {
     t.Skip("Flag `-short` provided: skipping Integration Tests.")
   }
@@ -38,7 +38,7 @@ func Test_Server(t *testing.T) {
     },
     {
       name:         "Setup Router",
-      URI:          "/health?name=Healthcheck Handler",
+      URI:          "/health?name=HealthcheckHandler",
       responseCode: 400,
       body:         "400 Bad Request",
     },
