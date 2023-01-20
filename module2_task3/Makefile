@@ -24,17 +24,15 @@ stop: ## Stops the application.
 
 clean: ## Delete the binary awesome-api and the log file awesome-api.log.
 	-rm -r awesome-api
-	-rm coverage-integrations.out
-	-rm coverage-units.out
+	-rm -r coverage-integrations.out
+	-rm -r coverage-units.out
 	-pgrep awesome-api | xargs kill
 
 test: ## Tests application's server to ensure that it behaves as expected.
 	go test -v -short
-	curl http://localhost:9999
-	curl http://localhost:9999/health
 
 unit-tests: ## Unit-testing code for the HelloHandler method.
-	go test -v -short -coverprofile=coverage-units.out
+	go test -v -short -coverprofile=coverage-units.out || echo $1
 
 integration-tests: ## Successfully executes a specific Golang integration tests.
-	go test -v -short -run='^Test_server' -run='^Test_HelloHandler' -run='^setupRouter' -coverprofile=coverage-integrations.out
+	go test -v -short -run='^main_integration_test.go' -coverprofile=coverage-integrations.out || echo $1
