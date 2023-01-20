@@ -29,7 +29,7 @@ clean: ## Delete the binary awesome-api and the log file awesome-api.log.
 	-pgrep awesome-api | xargs kill
 
 test: ## Tests application's server to ensure that it behaves as expected.
-	go test -v -short  -coverprofile=coverage-units.out
+	go test -v -short -coverprofile=coverage-units.out
 
 unit-tests: ## Unit-testing code for the HelloHandler method.
 	go test -v -short -coverprofile=coverage-units.out
