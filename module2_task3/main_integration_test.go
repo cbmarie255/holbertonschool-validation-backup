@@ -37,10 +37,10 @@ func Test_server(t *testing.T) {
       body:         "Hello HelloHandler!",
     },
     {
-      name:         "Setup Router",
+      name:         "SetUp Router",
       URI:          "/health?name=HealthcheckHandler",
-      responseCode: 400,
-      body:         "400 Bad Request",
+      responseCode: 200,
+      body:         "ALIVE",
     },
   }
   for _, tt := range tests {
