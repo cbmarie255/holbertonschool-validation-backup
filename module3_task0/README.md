@@ -1,16 +1,24 @@
-<h1>Module 1: Introduction to DevOps: Automate Everything to Focus on What Really Matters</h1>
-<h2>Courtney Brown</h2>
+<h1>Module 3: Continuous Integration / Continuous Deployment</h1>
+<h3>by Courtney Brown</h3>
 
 # HolbertonSchool-Validation
 
 ## Prerequisites
-
-- GoHugo v0.80+
-- goLang
+- Same tools as previous module
+- Golang in v1.15.*
+- NPM v7+ with NodeJS v14.* (stable)
+- Python 3 with pip module
 
 ## Lifecycle
-
+- lint
 - build
+- run
+- stop
 - clean
-- post
+- test
 - help
+- unit-tests
+- integration-tests
+
+## Workflow
+- source-control work-flow
