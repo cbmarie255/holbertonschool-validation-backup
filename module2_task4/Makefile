@@ -36,3 +36,8 @@ unit-tests: ## Unit-testing code for the HelloHandler method.
 
 integration-tests: ## Successfully executes a specific Golang integration tests.
 	go test -v -coverprofile=coverage-integrations.out
+
+check: ## Should succeed by default, and fail when presented with a dead link or a badly written Markdown file.
+
+
+validate: ## Must always succeed by default and should print the result on the stdout
