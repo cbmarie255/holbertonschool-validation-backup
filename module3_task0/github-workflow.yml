@@ -1,7 +1,7 @@
 ---
 name: module3_task0
 
-on:
+"on":
   push:
     branches: master
   pull_request:
