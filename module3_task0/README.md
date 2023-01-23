@@ -19,6 +19,9 @@
 - help
 - unit-tests
 - integration-tests
+- check
+- post
+- validate
 
 ## Workflow
 - source-control work-flow
