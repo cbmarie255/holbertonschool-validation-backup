@@ -16,18 +16,19 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Change directory and goal "help"
+      - name: run setup.sh
         run: |
-          cd module3_task0
-          make help
-      - name: Goal "lint"
+          cd module3_task1
+          chmod u+x setup.sh
+          sudo ./setup.sh
+      - name: lint
         run: make lint
-      - name: Goal "build"
+      - name: build
         run: make build
-      - name: Goal "unit-tests"
+      - name: unit-tests
         run: make unit-tests
-      - name: Goal "validate"
+      - name: validate
         run: make validate
-      - name: Goal "integration-tests"
+      - name: integration-tests
         run: make unit-tests
 ...
