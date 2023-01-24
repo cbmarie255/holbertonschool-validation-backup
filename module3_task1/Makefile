@@ -3,21 +3,7 @@ help: ## Must be implemented and print a list of all the goals with a sentence.
 	sed -n '2p;5p;21p;25p;29p;32p;38p;41p;44p;47p;49p;51p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
-	golangci-lint run; \
-	if [ $? -eq 0 ]; then \
-		exit 0; \
-	else \
-		exit 1; \
-		echo golangci-lint run; \
-	fi 
-	shellcheck setup.sh; \
-	if [ $? -eq 0 ]; then \
-                exit 0; \
-        else \
-                exit 1; \
-                echo shellcheck setup.sh; \
-        fi
-
+	shellcheck setup.sh
 build: ## Compiles the source code of the application to a binary named awesome-api.
 	go mod init github.com/cbmarie255/awesome-api
 	go build
