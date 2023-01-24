@@ -25,3 +25,6 @@
 
 ## Workflow
 - source-control work-flow
+
+## Build Workflow
+- building the CI/CD workflow through automation
