@@ -22,7 +22,7 @@ jobs:
           chmod u+x setup.sh
           sudo ./setup.sh
       - name: lint
-        run: make lint
+        run: make  lint
       - name: build
         run: make build
       - name: unit-tests
