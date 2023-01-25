@@ -21,23 +21,23 @@ jobs:
           cd module3_task1
           chmod u+x setup.sh
           ./setup.sh
-      - name: lint
+      - name: make lint
         run: |
           cd module3_task1
-          >make lint<
-      - name: build
+          make lint
+      - name: make build
         run: |
           cd module3_task1
           make build
-      - name: unit-tests
+      - name: make unit-tests
         run: |
           cd module3_task1
           make unit-tests
-      - name: validate
+      - name: make validate
         run: |
           cd module3_task1
           make validate
-      - name: integration-tests
+      - name: make integration-tests
         run: |
           cd module3_task1
           make integration-tests
