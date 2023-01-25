@@ -33,6 +33,6 @@ check: ## Should succeed by default, and fail when presented with a dead link or
 
 validate: ## Must always succeed by default and should print the result on the stdout
 
-post: ##  Create a new blog post whose filename and title come from the environment variables
+post: ## Create a new blog post whose filename and title come from the environment variables
 	hugo new posts/$(POST_NAME).md
 	sed -i ‘2s/title: .*/title: “$(POST_TITLE)“/’ content/posts/$(POST_NAME).md >/dev/null 2>&1
