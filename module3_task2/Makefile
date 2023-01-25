@@ -1,6 +1,6 @@
 .SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
-	sed -n '2p;5p;14p;18p;22p;25p;31p;34p;37p' Makefile | grep "##" | tr -d "##"
+	sed -n '2p;5p;15p;19p;23p;26p;32p;35p;38p;41p;43p;45p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
 	golangci-lint run; \
@@ -9,7 +9,8 @@ lint: ## Checks to see if the code is written in compliance with the linter.
 	else \
 		exit 1; \
 		echo golangci-lint run; \
-	fi
+	fi 
+	shellcheck setup.sh
 
 build: ## Compiles the source code of the application to a binary named awesome-api.
 	go mod init github.com/cbmarie255/awesome-api
@@ -38,10 +39,9 @@ integration-tests: ## Successfully executes a specific Golang integration tests.
 	go test -v -coverprofile=coverage-integrations.out
 
 check: ## Should succeed by default, and fail when presented with a dead link or a badly written Markdown file.
-	
 
 validate: ## Must always succeed by default and should print the result on the stdout
 
-post: ## Posts markdown updates to website.
+post: ##  Create a new blog post whose filename and title come from the environment variables
 	hugo new posts/$(POST_NAME).md
 	sed -i ‘2s/title: .*/title: “$(POST_TITLE)“/’ content/posts/$(POST_NAME).md >/dev/null 2>&1
