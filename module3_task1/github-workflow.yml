@@ -24,7 +24,7 @@ jobs:
       - name: lint
         run: |
           cd module3_task1
-          make lint
+          >make lint<
       - name: build
         run: |
           cd module3_task1
