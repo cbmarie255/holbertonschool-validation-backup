@@ -20,7 +20,7 @@ jobs:
         run: |
           cd module3_task1
           chmod u+x setup.sh
-          ./setup.sh
+          sudo ./setup.sh
       - name: make lint
         run: |
           cd module3_task1
