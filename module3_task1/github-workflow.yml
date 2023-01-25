@@ -20,15 +20,25 @@ jobs:
         run: |
           cd module3_task1
           chmod u+x setup.sh
-          sudo ./setup.sh
+          ./setup.sh
       - name: lint
-        run: make lint
+        run: |
+          cd module3_task1
+          make lint
       - name: build
-        run: make build
+        run: |
+          cd module3_task1
+          make build
       - name: unit-tests
-        run: make unit-tests
+        run: |
+          cd module3_task1
+          make unit-tests
       - name: validate
-        run: make validate
+        run: |
+          cd module3_task1
+          make validate
       - name: integration-tests
-        run: make unit-tests
+        run: |
+          cd module3_task1
+          make integration-tests
 ...
