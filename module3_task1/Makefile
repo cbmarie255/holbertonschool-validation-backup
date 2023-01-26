@@ -6,7 +6,6 @@ lint: ## Checks to see if the code is written in compliance with the linter.
 	shellcheck setup.sh
 
 build: ## Compiles the source code of the application to a binary named awesome-api 
-	go mod init github.com/cbmarie255/awesome-api
 	go build
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
