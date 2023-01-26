@@ -9,3 +9,7 @@ sudo apt-get remove -y golang-go
 apt-get remove -y --auto-remove golang-go
 rm -rvf /usr/local/go
 wget https://dl.google.com/go/go1.19.5.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.5.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+make build
+
