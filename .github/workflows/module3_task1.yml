@@ -20,7 +20,7 @@ jobs:
         run: |
           cd module3_task1
           chmod u+x setup.sh
-          sudo ./setup.sh
+          sudo . ./setup.sh
           go version
       - name: make lint
         run: |
