@@ -5,8 +5,7 @@ curl -L https://github.com/gohugoio/hugo/releases/download/v0.84.0/hugo_0.84.0_L
 sudo apt install ./hugo.deb
 sudo apt-get install -y shellcheck
 sudo apt-get install -y markdownlint
-sudo apt-get remove golang-go
-sudo apt-get remove --auto-remove golang-go
-sudo rm -rvf /usr/local/go
-wget https://dl.google.com/go/go1.14.linux-amd64.tar.gz
-make build
+sudo apt-get remove -y golang-go
+apt-get remove -y --auto-remove golang-go
+rm -rvf /usr/local/go
+wget https://dl.google.com/go/go1.19.5.linux-amd64.tar.gz
