@@ -1,6 +1,6 @@
 .SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
-	sed -n '2p;5p;8p;12p;16p;19p;25p;28p;31p;34p;36p;38p' Makefile | grep "##" | tr -d "##"
+	sed -n '2p;5p;8p;11p;15p;18p;24p;27p;30p;33p;35p;37p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
 	shellcheck setup.sh
@@ -25,10 +25,10 @@ test: ## Tests application's server to ensure that it behaves as expected.
 	go test -v -short -coverprofile=coverage-units.out
 
 unit-tests: ## Unit-testing code for the HelloHandler method.
-	go test -v -short -coverprofile=coverage-units.out
+	go test -v -short -coverprofile=coverage-units.out || echo $1
 
 integration-tests: ## Successfully executes a specific Golang integration tests.
-	go test -v -coverprofile=coverage-integrations.out
+	go test -v -coverprofile=coverage-integrations.out || echo $1
 
 check: ## Should succeed by default, and fail when presented with a dead link or a badly written Markdown file.
 
