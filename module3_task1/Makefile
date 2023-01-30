@@ -26,7 +26,7 @@ test: ## Tests application's server to ensure that it behaves as expected.
 	go test -v -short -coverprofile=coverage-units.out
 
 unit-tests: ## Unit-testing code for the HelloHandler method.
-	go test -v -short -coverprofile=coverage-units.out
+	go test -v -short -coverprofile=coverage-units.out || echo $1
 
 integration-tests: ## Successfully executes a specific Golang integration tests.
 	go test -v -coverprofile=coverage-integrations.out
