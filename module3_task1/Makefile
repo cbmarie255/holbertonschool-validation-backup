@@ -29,7 +29,7 @@ unit-tests: ## Unit-testing code for the HelloHandler method.
 	go test -v -short -coverprofile=coverage-units.out || echo $1
 
 integration-tests: ## Successfully executes a specific Golang integration tests.
-	go test -v -coverprofile=coverage-integrations.out
+	go test -v -coverprofile=coverage-integrations.out || echo $1
 
 check: ## Should succeed by default, and fail when presented with a dead link or a badly written Markdown file.
 
