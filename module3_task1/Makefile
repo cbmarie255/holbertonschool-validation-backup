@@ -1,12 +1,13 @@
+build=hugo
 .SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
-	sed -n '2p;5p;8p;12p;16p;19p;25p;28p;31p;34p;36p;38p' Makefile | grep "##" | tr -d "##"
+	sed -n '4p;6p;9p;12p;16p;19p;25p;28p;31p;34p;36p;38p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
 	shellcheck setup.sh
 
 build: ## Compiles the source code of the application to a binary named awesome-api 
-	hugo
+	$(build)
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
 	chmod u+x awesome-api
