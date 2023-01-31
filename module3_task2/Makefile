@@ -1,6 +1,6 @@
 .SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
-        sed -n '2p;5p;8p;11p;15p;18p;24p;27p;30p;33p;35p;37p' Makefile | grep "##" | tr -d "##"
+        sed -n '2p;5p;8p;11p;15p;18p;24p;27p;30p;33p;35p;37p;41p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
         shellcheck setup.sh
