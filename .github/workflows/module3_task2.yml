@@ -1,0 +1,48 @@
+---
+name: module3_task2
+
+"on":
+  push:
+    branches: master
+  pull_request:
+    branches: master
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+
+      - name: run setup.sh
+        run: |
+          cd module3_task2
+          chmod u+x setup.sh
+          ./setup.sh
+      - name: make lint
+        run: |
+          cd module3_task2
+          make lint
+      - name: make build
+        run: |
+          cd module3_task2
+          make build
+      - name: make unit-tests
+        run: |
+          cd module3_task2
+          make unit-tests
+      - name: make validate
+        run: |
+          cd module3_task2
+          make validate
+      - name: make integration-tests
+        run: |
+          cd module3_task2
+          make integration-tests
+      - name: make package
+        run: |
+          cd module3_task2
+          make package
+...
