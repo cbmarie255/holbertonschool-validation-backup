@@ -22,6 +22,7 @@
 - check
 - post
 - validate
+- package
 
 ## Workflow
 - source-control work-flow
