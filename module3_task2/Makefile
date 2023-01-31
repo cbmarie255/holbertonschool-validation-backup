@@ -5,8 +5,7 @@ help: ## Must be implemented and print a list of all the goals with a sentence.
 lint: ## Checks to see if the code is written in compliance with the linter.
 	shellcheck setup.sh
 
-build: ## Compiles the source code of the application to a binary named awesome-api 
-	mkdir awesome-api
+build: ## Compiles the source code of the application to a binary named awesome-api
 	hugo --destination awesome-api
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
