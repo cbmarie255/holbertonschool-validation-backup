@@ -1,5 +1,5 @@
 ---
-name: module3_task1
+name: module3_task2
 
 "on":
   push:
@@ -11,23 +11,38 @@ name: module3_task1
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
-      - name: Change directory and goal "help"
+      - name: run setup.sh
         run: |
-          cd module3_task0
-          make help
-      - name: Goal "lint"
-        run: make lint
-      - name: Goal "build"
-        run: make build
-      - name: Goal "unit-tests"
-        run: make unit-tests
-      - name: Goal "validate"
-        run: make validate
-      - name: Goal "integration-tests"
-        run: make unit-tests
+          cd module3_task2
+          chmod u+x setup.sh
+          ./setup.sh
+      - name: make lint
+        run: |
+          cd module3_task2
+          make lint
+      - name: make build
+        run: |
+          cd module3_task2
+          make build
+      - name: make unit-tests
+        run: |
+          cd module3_task2
+          make unit-tests
+      - name: make validate
+        run: |
+          cd module3_task2
+          make validate
+      - name: make integration-tests
+        run: |
+          cd module3_task2
+          make integration-tests
+      - name: make package
+        run: |
+          cd module3_task2
+          make package
 ...
