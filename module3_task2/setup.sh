@@ -11,5 +11,3 @@ wget https://dl.google.com/go/go1.19.5.linux-amd64.tar.gz
 rm -rf ./go && tar -C . -xzf go1.19.5.linux-amd64.tar.gz
 currentDirectory=$(pwd)
 export PATH=$currentDirectory/go/bin:$PATH
-make build
-jar xvf logs.zip
