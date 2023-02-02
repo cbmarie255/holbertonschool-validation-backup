@@ -39,4 +39,5 @@ post: ## Create a new blog post whose filename and title come from the environme
 	sed -i ‘2s/title: .*/title: “$(POST_TITLE)“/’ content/posts/$(POST_NAME).md >/dev/null 2>&1
 
 package: ## Produces a file awesome-website.zip, containing the binary awesome-api and the directory dist/ directory
+	make build
 	zip awesome-website.zip awesome-api dist/
