@@ -42,4 +42,3 @@ post: ## Create a new blog post whose filename and title come from the environme
 package: ## Produces a file awesome-website.zip, containing the binary awesome-api and the directory dist/ directory
 	make build
 	zip awesome-website.zip awesome-api dist/
-
