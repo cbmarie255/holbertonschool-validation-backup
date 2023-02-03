@@ -16,5 +16,6 @@ BLANK to BLANK
 
 ## How to “quickly” verify that the application is running (healthcheck)?
 
-To verify the application is running, create a workflow to do a quick healthcheck, 
-or execute either 'make unit-test' or 'make integration-tests'.
+To verify the application is running, create a workflow to do a quick
+healthcheck, or execute either 'make unit-test' or 'make integration-tests'.
+\n
