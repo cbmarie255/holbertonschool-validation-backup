@@ -1,6 +1,7 @@
 # HolbertonSchool-Validation
 
-# Module 3: Continuous Integration / Continuous Deployment
+## Module 3: Continuous Integration / Continuous Deployment
+
 by Courtney Brown
 
 ## Prerequisites
