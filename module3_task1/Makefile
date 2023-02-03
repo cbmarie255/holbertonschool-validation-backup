@@ -31,9 +31,10 @@ integration-tests: ## Successfully executes a specific Golang integration tests.
 	go test -v -coverprofile=coverage-integrations.out || echo $1
 
 check: ## Should succeed by default, and fail when presented with a dead link or a badly written Markdown file.
-
+	
 validate: ## Must always succeed by default and should print the result on the stdout
-
+	./w3c_validator.py ./dist/index.html || true
+	
 post: ## Create a new blog post whose filename and title come from the environment variables
 	hugo new posts/$(POST_NAME).md
 	sed -i ‘2s/title: .*/title: “$(POST_TITLE)“/’ content/posts/$(POST_NAME).md >/dev/null 2>&1
