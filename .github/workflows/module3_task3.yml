@@ -16,6 +16,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+      - name: Archive
+        run: echo ${{ github.sha }} >> Archive.txt
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
