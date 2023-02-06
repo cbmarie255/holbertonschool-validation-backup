@@ -44,17 +44,31 @@ jobs:
         run: |
           cd module3_task5
           make package
-      - name: Release
+      - name: release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: 1.0.0
           files: |
             module3_task5/awesome-website.zip
             module3_task5/DEPLOY.md
-      - name: Archive
+      - name: archive
         if: ${{ success()}}
         uses: actions/upload-artifact@v3
         with:
           name: upload-package
           path: module3_task5/awesome-website.zip
-...
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2.0.0
+        with:
+          publish-dir: './module3_task5/dist'
+          production-branch: master
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1   
+        
