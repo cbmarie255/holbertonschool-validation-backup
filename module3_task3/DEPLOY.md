@@ -2,7 +2,7 @@
 
 ## What is in the archive and how to unarchive it?
 
-In the archive, there are logs of how the appliation is deployed. 
+In the archive, there are logs of how the appliation is deployed.
 
 ## What are the commands to start and stop the application?
 
