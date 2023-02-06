@@ -19,10 +19,10 @@ BLANK to BLANK
 To verify the application is running, create a workflow to do a quick
 healthcheck, or execute either 'make unit-test' or 'make integration-tests'.
 
-## Version Verification
+## Tag
 
-To verify the version, run "git tag"
+To verify the version, run git tag.
 
-## Unzipping
+## Zip
 
-To unzip the package, run "unzip awesome-website.zip"
+To unzip the package, run unzip awesome-website.zip.
