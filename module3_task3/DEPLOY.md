@@ -2,7 +2,7 @@
 
 ## What is in the archive and how to unarchive it?
 
-In the archive, ....
+In the archive, there are logs of how the appliation is deployed. 
 
 ## What are the commands to start and stop the application?
 
@@ -18,3 +18,11 @@ BLANK to BLANK
 
 To verify the application is running, create a workflow to do a quick
 healthcheck, or execute either 'make unit-test' or 'make integration-tests'.
+
+## Version Verification
+
+To verify the version, run "git tag"
+
+## Unzipping
+
+To unzip the package, run "unzip awesome-website.zip"
