@@ -1,6 +1,6 @@
 .SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
-	sed -n '2p;5p;9p;12p;15p;18p;22p;25p;31p;37p;40p;42p;44p;48p' Makefile | grep "##" | tr -d "##"
+	sed -n '2p;5p;9p;12p;15p;18p;22p;25p;31p;34p;37p;40p;42p;44p;48p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
 	markdownlint README.md
@@ -32,10 +32,10 @@ test: ## Tests application's server to ensure that it behaves as expected.
 	go test -v -short -coverprofile=coverage-units.out
 
 unit-tests: ## Unit-testing code for the HelloHandler method.
-	go test -v -short -coverprofile=coverage-units.out || echo $1
+	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster go test -v -short -coverprofile=coverage-units.out
 
 integration-tests: ## Successfully executes a specific Golang integration tests.
-	go test -v -coverprofile=coverage-integrations.out || echo $1
+	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster go test -v -short -coverprofile=coverage-units.out
 
 check: ## Should succeed by default, and fail when presented with a dead link or a badly written Markdown file.
 
