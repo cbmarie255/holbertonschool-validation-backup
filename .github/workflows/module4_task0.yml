@@ -27,7 +27,7 @@ jobs:
       - name: make build
         run: |
           cd module4_task0
-          make build
+          hugo
       - name: make unit-tests
         run: |
           cd module4_task0
