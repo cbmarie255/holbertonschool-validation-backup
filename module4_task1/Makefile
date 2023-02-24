@@ -6,10 +6,10 @@ lint: ## Checks to see if the code is written in compliance with the linter.
 	markdownlint README.md
 	markdownlint DEPLOY.md
 
-build-hugo: ## 
+build-hugo: ## Builds needed components for Hugo site.
 	hugo
 
-build-go:
+build-go: ## Builds docker image for build environment in container.
 	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster /bin/bash -c "go mod init github.com/cbmarie255/awesome-api && go get github.com/gorilla/mux && go build"
 
 build: ## Compiles the source code of the application to a binary named awesome-api
@@ -53,3 +53,6 @@ post: ## Create a new blog post whose filename and title come from the environme
 package: ## Produces a file awesome-website.zip, containing the binary awesome-api and the directory dist/ directory
 	make build
 	zip awesome-website.zip awesome-api dist/
+
+build-docker: ## Builds a stable environment for app through a Docker Image.
+	docker build 
