@@ -55,5 +55,4 @@ package: ## Produces a file awesome-website.zip, containing the binary awesome-a
 	-zip awesome-website.zip awesome-api dist/
 
 build-docker: ## Builds a stable environment for app through a Docker Image.
-	hugo
 	docker build -t "awesome:build" ./build
