@@ -1,6 +1,6 @@
 .SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
-	sed -n '2p;5p;9p;12p;15p;19p;23p;26p;32p;35p;38p;41p;43p;49p;53p;57p' Makefile | grep "##" | tr -d "##"
+	sed -n '2p;5p;9p;12p;15p;18p;22p;27p;31p;34p;37p;40p;42p;48p;52p;58p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
 	markdownlint README.md
@@ -13,8 +13,7 @@ build-go: ## Builds docker image for build environment in container.
 	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster /bin/bash -c "go mod init github.com/cbmarie255/awesome-api && go get github.com/gorilla/mux && go build"
 
 build: ## Compiles the source code of the application to a binary named awesome-api
-	hugo
-	touch awesome-api
+	make build-go
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
 	chmod u+x awesome-api
