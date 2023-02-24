@@ -1,2 +1,2 @@
 FROM golang:1.15.8-buster
-RUN sudo ./setup.sh
+RUN ./setup.sh
