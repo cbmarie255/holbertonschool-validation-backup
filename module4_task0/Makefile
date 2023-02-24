@@ -36,7 +36,7 @@ unit-tests: ## Unit-testing code for the HelloHandler method.
 	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster go test -v -short -coverprofile=coverage-units.out
 
 integration-tests: ## Successfully executes a specific Golang integration tests.
-	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster go test -v -coverprofile=coverage-units.out
+	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster go test -v -coverprofile=coverage-integrations.out
 
 check: ## Should succeed by default, and fail when presented with a dead link or a badly written Markdown file.
 
