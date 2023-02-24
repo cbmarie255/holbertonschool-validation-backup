@@ -1,6 +1,6 @@
 .SILENT:
 help: ## Must be implemented and print a list of all the goals with a sentence.
-	sed -n '2p;5p;9p;12p;15p;18p;22p;25p;31p;34p;37p;40p;42p;48p;52p' Makefile | grep "##" | tr -d "##"
+	sed -n '2p;5p;9p;12p;15p;19p;23p;26p;32p;35p;38p;41p;43p;49p;53p;57p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
 	markdownlint README.md
@@ -51,8 +51,11 @@ post: ## Create a new blog post whose filename and title come from the environme
 	sed -i ‘2s/title: .*/title: “$(POST_TITLE)“/’ content/posts/$(POST_NAME).md >/dev/null 2>&1
 
 package: ## Produces a file awesome-website.zip, containing the binary awesome-api and the directory dist/ directory
-	make build
-	zip awesome-website.zip awesome-api dist/
+	-make build
+	-zip awesome-website.zip awesome-api dist/
 
 build-docker: ## Builds a stable environment for app through a Docker Image.
-	docker build 
+	docker build -t "awesome:build"
+	cd build
+	chmod u+x Dockerfile
+	./Dockerfile
