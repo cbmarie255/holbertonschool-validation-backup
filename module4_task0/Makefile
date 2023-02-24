@@ -13,7 +13,7 @@ build-go:
 	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster /bin/bash -c "go mod init github.com/cbmarie255/awesome-api && go get github.com/gorilla/mux && go build"
 
 build: ## Compiles the source code of the application to a binary named awesome-api
-	@hugo
+	hugo
 	touch awesome-api
 
 run: ## Runs the application in background by executing the binary awesome-api, and write logs into a file named awesome.log.
@@ -36,7 +36,7 @@ unit-tests: ## Unit-testing code for the HelloHandler method.
 	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster go test -v -short -coverprofile=coverage-units.out
 
 integration-tests: ## Successfully executes a specific Golang integration tests.
-	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster go test -v -short -coverprofile=coverage-units.out
+	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster go test -v -coverprofile=coverage-units.out
 
 check: ## Should succeed by default, and fail when presented with a dead link or a badly written Markdown file.
 
