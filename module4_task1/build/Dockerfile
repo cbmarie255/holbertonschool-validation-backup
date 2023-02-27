@@ -1,6 +1,5 @@
 FROM golang:1.15.8-buster
-WORKDIR /app
-COPY ./setup.sh /app/module4_task1/
-RUN chmod u+x /app/module4_task1/setup.sh
-ENTRYPOINT ["/app/module4_task1/setup.sh"]
-RUN ./setup.sh
+WORKDIR /app/module4_task1
+COPY ./setup.sh .
+RUN chmod u+x setup.sh
+CMD ["./setup.sh"]
