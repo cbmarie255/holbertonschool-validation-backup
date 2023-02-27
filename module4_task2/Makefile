@@ -3,11 +3,10 @@ help: ## Must be implemented and print a list of all the goals with a sentence.
 	sed -n '2p;5p;9p;12p;15p;18p;22p;27p;31p;34p;37p;40p;42p;48p;52p;58p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
-	markdownlint README.md
-	markdownlint DEPLOY.md
+	hadolint /build/Dockerfile
 
 build-hugo: ## Builds needed components for Hugo site.
-	hugo
+	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster /bin/bash -c "go mod init github.com/cbmarie255/awesome-api && go get github.com/gorilla/mux && go build"
 
 build-go: ## Builds docker image for build environment in container.
 	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster /bin/bash -c "go mod init github.com/cbmarie255/awesome-api && go get github.com/gorilla/mux && go build"
@@ -54,4 +53,7 @@ package: ## Produces a file awesome-website.zip, containing the binary awesome-a
 	-zip awesome-website.zip awesome-api dist/
 
 build-docker: ## Builds a stable environment for app through a Docker Image.
-	docker build -t "awesome:build" ./build
+	docker build -t "awesome:build" ./build/Dockerfile
+
+docker-tests:
+	container-structure-test test --image ./build/awesome:build --config cst.yml

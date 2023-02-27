@@ -11,3 +11,5 @@ RUN npm install -g markdownlint-cli -g
 RUN sudo apt install zip
 RUN rm -rf /usr/local/go && tar -C /usr/local -xzf go1.19.5.linux-amd64.tar.gz
 RUN export PATH=/usr/local/go/bin:$PATH
+RUN curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64 && chmod +x container-structure-test-linux-amd64 && sudo mv container-structure-test-linux-amd64 /usr/local/bin/container-structure-test
+RUN docker pull ghcr.io/hadolint/hadolint
