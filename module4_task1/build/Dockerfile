@@ -1,6 +1,6 @@
 FROM golang:1.15.8-buster
-RUN apt-get update && apt-get install curl make npm
-RUN npm install -g n
+RUN apt-get update && apt-get install curl make npm -y
+RUN npm install -g n -y
 RUN n 16.0.0
 RUN hash -r
 RUN npm install netlify-cli -g
