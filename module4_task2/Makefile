@@ -3,7 +3,7 @@ help: ## Must be implemented and print a list of all the goals with a sentence.
 	sed -n '2p;5p;8p;11p;14p;17p;21p;24p;30p;33p;36p;39p;41p;47p;51p;55p;58p' Makefile | grep "##" | tr -d "##"
 
 lint: ## Checks to see if the code is written in compliance with the linter.
-	hadolint  --info DL3059 /build/Dockerfile
+	docker run --rm -i hadolint/hadolint < Dockerfile
 
 build-hugo: ## Builds needed components for Hugo site.
 	docker run --rm --volume=$(shell pwd):/app --workdir=/app golang:1.15.8-buster /bin/bash -c "go mod init github.com/cbmarie255/awesome-api && go get github.com/gorilla/mux && go build"
