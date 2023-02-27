@@ -1,2 +1,5 @@
 FROM golang:1.15.8-buster
-RUN /module4_task1/setup.sh
+COPY ./setup.sh /
+RUN chmod u+x /setup.sh
+ENTRYPOINT ["/etup.sh"]
+CMD ["OK"]
