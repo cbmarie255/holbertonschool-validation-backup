@@ -53,7 +53,7 @@ package: ## Produces a file awesome-website.zip, containing the binary awesome-a
 	-zip awesome-website.zip awesome-api dist/
 
 build-docker: ## Builds a stable environment for app through a Docker Image.
-	docker build -t "awesome:build" ./build/Dockerfile
+	docker build -t "awesome:build" ./build
 
-docker-tests:
+docker-tests: ## Runs an container structure text for Docker image.
 	container-structure-test test --image ./build/awesome:build --config cst.yml
