@@ -1,6 +1,8 @@
 FROM golang:1.15.8-buster
 RUN apt-get update \ 
-&& (printf "y" | apt-get install curl make npm) \
+&& echo "y" | apt-get install curl \
+&& echo "y" | apt-get install make \
+&& echo "y" | apt-get install npm \
 && npm install -g n \
 && n 16.0.0 \
 && hash -r \
